@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  db:
+    image: docker.io/library/postgres:16.1
+    environment:
+      POSTGRES_PASSWORD: pg_password
+    ports:
+      - '5432:5432'
+    command:
+      - '-c'
+      - 'wal_level=logical'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  electric:
+    image: docker.io/electricsql/electric:latest
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://postgres:pg_password@db/postgres
+      DATABASE_REQUIRE_SSL: 'false'
+      LOGICAL_PUBLISHER_HOST: electric
+      PG_PROXY_PASSWORD: '${PG_PROXY_PASSWORD}'
+      AUTH_MODE: insecure
+    ports:
+      - '5133:5133'
+      - '5433:5433'
+      - '65432:65432'
+volumes:
+  db_data:
