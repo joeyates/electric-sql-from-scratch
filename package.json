@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "electric-sql": "^0.9.6"
+  },
+  "scripts": {
+    "prebuild": "npx electric-sql generate"
+  }
+}
