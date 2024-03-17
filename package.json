@@ -1,8 +1,17 @@
 {
   "dependencies": {
-    "electric-sql": "^0.9.6"
+    "electric-sql": "^0.9.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "prebuild": "npx electric-sql generate"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "esbuild": "^0.20.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
   }
 }
