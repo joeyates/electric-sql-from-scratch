@@ -5,7 +5,8 @@
     "react-dom": "^18.2.0"
   },
   "scripts": {
-    "prebuild": "npx electric-sql generate"
+    "prebuild": "npx electric-sql generate",
+    "build": "esbuild src/app.tsx --bundle --minify --sourcemap --outfile=public/bundle.js"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
