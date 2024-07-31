@@ -22,7 +22,6 @@ services:
       AUTH_MODE: insecure
     ports:
       - '5133:5133'
-      - '5433:5433'
       - '65432:65432'
 volumes:
   db_data:
